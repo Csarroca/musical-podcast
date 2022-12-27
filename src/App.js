@@ -1,5 +1,7 @@
+import PodcastCard from "./components/PodcastCard/PodcastCard";
+
 const App = () => {
-  return <>app</>;
+  return <PodcastCard />;
 };
 
 export default App;
