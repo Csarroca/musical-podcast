@@ -1,7 +1,16 @@
-import PodcastCard from "./components/PodcastCard/PodcastCard";
+import PodcastList from "./components/PodcastList/PodcastList";
+import { QueryClientProvider, QueryClient } from "react-query";
 
-const App = () => {
-  return <PodcastCard />;
-};
+const queryClient = new QueryClient();
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <PodcastList />
+      </div>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
