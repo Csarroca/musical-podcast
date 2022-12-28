@@ -7,8 +7,6 @@ const PodcastCardStyled = styled.div`
   width: 200px;
   box-shadow: ${({ theme }) => theme.boxShadow.regular};
   padding: 0 7px 10px 7px;
-  margin-top: 100px;
-  margin-left: 100px;
   border-radius: 5px;
 
   .podcast-card__cover {
