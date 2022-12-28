@@ -6,9 +6,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <PodcastList />
-      </div>
+      <PodcastList />
     </QueryClientProvider>
   );
 }
