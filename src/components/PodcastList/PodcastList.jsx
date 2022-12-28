@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import PodcastCard from "../PodcastCard/PodcastCard";
+import PodcastListSyled from "./PodcastListStyled";
 
 const PodcastList = () => {
   const getPodcasts = async () => {
@@ -22,13 +23,13 @@ const PodcastList = () => {
   }
 
   return (
-    <ul className="podcast-list">
-      <li className="podcast-list__card">
-        {data.feed.entry.map((pod) => (
+    <PodcastListSyled>
+      {data.feed.entry.map((pod) => (
+        <li className="podcast-list__item">
           <PodcastCard podcast={pod} key={pod.id.attributes["im:id"]} />
-        ))}
-      </li>
-    </ul>
+        </li>
+      ))}
+    </PodcastListSyled>
   );
 };
 
