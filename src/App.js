@@ -7,7 +7,6 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <PodcastPage />
       <Routes>
         <Route path="/" element={<PodcastPage />} />
       </Routes>
