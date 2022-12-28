@@ -4,15 +4,14 @@ import PodcastListSyled from "./PodcastListStyled";
 
 const PodcastList = () => {
   const getPodcasts = async () => {
-    const response = await fetch(
-      "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}`);
 
-    const data = response.json();
-    return data;
+    return response.json();
   };
 
-  const { data, status } = useQuery(["podcasts"], getPodcasts);
+  const { data, status } = useQuery(["podcasts"], getPodcasts, {
+    staleTime: 86400000,
+  });
 
   if (status === "loading") {
     return <p>Loading podcasts...</p>;
@@ -25,8 +24,8 @@ const PodcastList = () => {
   return (
     <PodcastListSyled>
       {data.feed.entry.map((pod) => (
-        <li className="podcast-list__item">
-          <PodcastCard podcast={pod} key={pod.id.attributes["im:id"]} />
+        <li className="podcast-list__item" key={pod.id.attributes["im:id"]}>
+          <PodcastCard podcast={pod} />
         </li>
       ))}
     </PodcastListSyled>
