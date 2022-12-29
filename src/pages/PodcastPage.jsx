@@ -35,7 +35,8 @@ const PodcastPage = () => {
 
   return (
     <>
-      <Filter search={search} searcher={searcher} />
+      <Filter search={search} searcher={searcher} results={results.length} />
+
       <PodcastList podcasts={results} />
     </>
   );
