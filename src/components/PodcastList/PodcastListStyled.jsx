@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const PodcastListSyled = styled.ul`
   display: grid;
-  grid-row-gap: 50px;
+  grid-row-gap: 70px;
   grid-column-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   margin: 0;

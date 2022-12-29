@@ -11,7 +11,9 @@ const PodcastCardStyled = styled.div`
 
   .podcast-card__cover {
     border-radius: 50%;
-    margin-top: -23px;
+    margin-top: -50px;
+    height: 100px;
+    width: 100px;
   }
 
   .podcast-card__name {

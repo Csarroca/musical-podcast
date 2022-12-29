@@ -12,7 +12,7 @@ const PodcastCard = ({ podcast }) => {
           width={55}
         />
         <h2 className="podcast-card__name">{podcast.name}</h2>
-        <span className="podcast-card__info">Author:{podcast.author}</span>
+        <span className="podcast-card__info">Author: {podcast.author}</span>
       </PodcastCardStyled>
     </>
   );
