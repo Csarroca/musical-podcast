@@ -2,6 +2,7 @@ import PodcastList from "../components/PodcastList/PodcastList";
 import { useQuery } from "react-query";
 import { useState } from "react";
 import getPodcasts from "../repository/podcasts";
+import Filter from "../components/Filter/Filter";
 
 const PodcastPage = () => {
   const [podcasts, setPodcasts] = useState([]);
@@ -34,12 +35,7 @@ const PodcastPage = () => {
 
   return (
     <>
-      <input
-        value={search}
-        onChange={searcher}
-        type="text"
-        placeholder="Search"
-      />
+      <Filter search={search} searcher={searcher} />
       <PodcastList podcasts={results} />
     </>
   );
