@@ -1,5 +1,7 @@
+const url = process.env.REACT_APP_API_URL;
+
 export const getPodcasts = async () => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}`);
+  const response = await fetch(url);
 
   const data = await response.json();
 
@@ -18,4 +20,22 @@ export const getPodcast = async (podcastId) => {
   const podcasts = await getPodcasts();
 
   return podcasts.filter((podcast) => podcast.id === podcastId)[0];
+};
+
+export const getEpisodeList = async (podcastId) => {
+  const response = await fetch(
+    " https://itunes.apple.com/lookup?id=788236947&entity=podcastEpisode&limit=1000"
+  );
+  const episodeList = await response.json();
+
+  const data = episodeList.results.map((podcast) => {
+    return {
+      title: podcast.trackName,
+      duration: podcast.trackTimeMillis,
+      date: podcast.releaseDate,
+      trackId: podcast.trackId,
+    };
+  });
+
+  return data;
 };
