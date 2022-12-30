@@ -27,9 +27,11 @@ const SideCardStyled = styled.article`
       width: 90%;
       border-bottom: solid 1px rgba(0, 0, 0, 0.1);
       margin-top: 15px;
+      padding-bottom: 15px;
     }
 
     &__name {
+      font-weight: bold;
       margin: 0;
       font-size: 0.75rem;
     }
@@ -45,6 +47,7 @@ const SideCardStyled = styled.article`
     }
 
     &__description-text {
+      line-height: 1.3;
       font-style: italic;
       font-weight: normal;
       color: ${({ theme }) => theme.colors.neutral.secundaryText};
