@@ -5,7 +5,7 @@ import SideCard from "../components/SideCard/SideCard";
 import getPodcasts from "../repository/podcasts";
 
 const initialPodcast = {
-  name: "",
+  name: "a",
   image: "",
   author: "",
   description: "",
@@ -23,6 +23,9 @@ const PodcastDetailedPage = () => {
 
   const getPodcastDetailed = useCallback(
     (podcastId) => {
+      if (!data) {
+        return;
+      }
       const podcastFiltered = data.filter(
         (podcast) => podcast.id === podcastId
       );

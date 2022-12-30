@@ -3,6 +3,7 @@ const styles = {
     neutral: {
       primaryText: "#17202A",
       secundaryText: "#797D7F ",
+      cursiveText: "#787D7F ",
     },
   },
   boxShadow: {
