@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import EpisodeList from "../components/EpisodesList/EpisodesList";
 import SideCard from "../components/SideCard/SideCard";
-import { getPodcast } from "../repository/podcasts";
+import { getEpisodeList, getPodcast } from "../repository/podcasts";
 
 const initialPodcast = {
   name: "",
@@ -14,6 +14,7 @@ const initialPodcast = {
 
 const PodcastDetailedPage = () => {
   const [podcast, setPodcast] = useState(initialPodcast);
+  const [episodeList, setEpisodeList] = useState();
 
   const { id } = useParams();
 
@@ -21,9 +22,17 @@ const PodcastDetailedPage = () => {
     staleTime: 86400000,
     onSuccess: setPodcast,
   });
-  console.log(data);
 
-  if (status === "loading") {
+  const { status: statusList } = useQuery(
+    ["episodeList"],
+    () => getEpisodeList(id),
+    {
+      staleTime: 86400000,
+      onSuccess: setEpisodeList,
+    }
+  );
+
+  if (status === "loading" || statusList === "loading") {
     return <p>Loading podcasts...</p>;
   }
 
@@ -37,7 +46,7 @@ const PodcastDetailedPage = () => {
   return (
     <>
       <SideCard podcast={podcast} />
-      <EpisodeList />
+      <EpisodeList episodeList={episodeList} />
     </>
   );
 };
