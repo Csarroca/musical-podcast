@@ -1,4 +1,4 @@
-const SideCard = (podcast) => {
+const SideCard = ({ podcast }) => {
   return (
     <>
       <img

@@ -9,6 +9,7 @@ const getPodcasts = async () => {
       image: podcast["im:image"][0].label,
       author: podcast["im:artist"].label,
       id: podcast.id.attributes["im:id"],
+      description: podcast.summary.label,
     };
   });
 };
