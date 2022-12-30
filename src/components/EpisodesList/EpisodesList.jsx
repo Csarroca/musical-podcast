@@ -1,10 +1,9 @@
 import EpisodeListStyled from "./EpisodeListStyled";
 
-const EpisodeList = () => {
+const EpisodeList = ({ episodeList }) => {
   return (
     <EpisodeListStyled>
       <span className="episodeList__head"> Episodes: 110</span>
-
       <table>
         <thead>
           <tr>
@@ -14,41 +13,13 @@ const EpisodeList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Jim parrales excuses of waiting</td>
-            <td>12/12/2022</td>
-            <td>14:00</td>
-          </tr>
-          <tr>
-            <td>Jim parrales excuses of waiting</td>
-            <td>12/12/2022</td>
-            <td>14:00</td>
-          </tr>
-          <tr>
-            <td>Jim parrales excuses of waiting</td>
-            <td>12/12/2022</td>
-            <td>14:00</td>
-          </tr>
-          <tr>
-            <td>Jim parrales excuses of waiting</td>
-            <td>12/12/2022</td>
-            <td>14:00</td>
-          </tr>
-          <tr>
-            <td>Jim parrales excuses of waiting</td>
-            <td>12/12/2022</td>
-            <td>14:00</td>
-          </tr>
-          <tr>
-            <td>Jim parrales excuses of waiting</td>
-            <td>12/12/2022</td>
-            <td>14:00</td>
-          </tr>
-          <tr>
-            <td>Jim parrales excuses of waiting</td>
-            <td>12/12/2022</td>
-            <td>14:00</td>
-          </tr>
+          {episodeList.map((episode) => (
+            <tr key={episode.trackId}>
+              <td>{episode.title}</td>
+              <td>{episode.date}</td>
+              <td>{episode.durations}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </EpisodeListStyled>
