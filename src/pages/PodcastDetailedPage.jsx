@@ -1,11 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import EpisodeList from "../components/EpisodesList/EpisodesList";
 import SideCard from "../components/SideCard/SideCard";
-import getPodcasts from "../repository/podcasts";
+import { getPodcast } from "../repository/podcasts";
 
 const initialPodcast = {
-  name: "a",
+  name: "",
   image: "",
   author: "",
   description: "",
@@ -16,28 +17,11 @@ const PodcastDetailedPage = () => {
 
   const { id } = useParams();
 
-  const { status, data } = useQuery(["podcasts"], getPodcasts, {
+  const { status, data } = useQuery(["podcast"], () => getPodcast(id), {
     staleTime: 86400000,
     onSuccess: setPodcast,
   });
-
-  const getPodcastDetailed = useCallback(
-    (podcastId) => {
-      if (!data) {
-        return;
-      }
-      const podcastFiltered = data.filter(
-        (podcast) => podcast.id === podcastId
-      );
-
-      setPodcast(podcastFiltered[0]);
-    },
-    [data]
-  );
-
-  useEffect(() => {
-    getPodcastDetailed(id);
-  }, [getPodcastDetailed, id]);
+  console.log(data);
 
   if (status === "loading") {
     return <p>Loading podcasts...</p>;
@@ -47,7 +31,15 @@ const PodcastDetailedPage = () => {
     return <p>Error</p>;
   }
 
-  return <SideCard podcast={podcast} />;
+  if (!data) {
+    return <p>Not found</p>;
+  }
+  return (
+    <>
+      <SideCard podcast={podcast} />
+      <EpisodeList />
+    </>
+  );
 };
 
 export default PodcastDetailedPage;

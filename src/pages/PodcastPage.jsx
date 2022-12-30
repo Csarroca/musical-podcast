@@ -1,7 +1,7 @@
 import PodcastList from "../components/PodcastList/PodcastList";
 import { useQuery } from "react-query";
 import { useState } from "react";
-import getPodcasts from "../repository/podcasts";
+import { getPodcasts } from "../repository/podcasts";
 import Filter from "../components/Filter/Filter";
 
 const PodcastPage = () => {
