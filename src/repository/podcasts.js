@@ -1,4 +1,4 @@
-const getPodcasts = async () => {
+export const getPodcasts = async () => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}`);
 
   const data = await response.json();
@@ -14,4 +14,8 @@ const getPodcasts = async () => {
   });
 };
 
-export default getPodcasts;
+export const getPodcast = async (podcastId) => {
+  const podcasts = await getPodcasts();
+
+  return podcasts.filter((podcast) => podcast.id === podcastId)[0];
+};
