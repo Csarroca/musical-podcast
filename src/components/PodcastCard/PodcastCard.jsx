@@ -1,9 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import PodcastCardStyled from "./PodcastCardStyled";
 
 const PodcastCard = ({ podcast }) => {
+  const navigate = useNavigate();
+
   return (
     <>
-      <PodcastCardStyled>
+      <PodcastCardStyled
+        onClick={() => {
+          navigate(`/podcast/${podcast.id}`);
+        }}
+      >
         <img
           className="podcast-card__cover"
           src={podcast.image}
