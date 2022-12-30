@@ -6,7 +6,7 @@ const getPodcasts = async () => {
   return data.feed.entry.map((podcast) => {
     return {
       name: podcast["im:name"].label,
-      image: podcast["im:image"][0].label,
+      image: podcast["im:image"][2].label,
       author: podcast["im:artist"].label,
       id: podcast.id.attributes["im:id"],
       description: podcast.summary.label,
