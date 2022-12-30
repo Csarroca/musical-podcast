@@ -1,22 +1,28 @@
+import SideCardStyled from "./SideCardStyled";
+
 const SideCard = ({ podcast }) => {
   return (
-    <>
-      <img
-        className="side-card__cover"
-        src={podcast.image}
-        alt={`${podcast.name} podcast cover`}
-        height={55}
-        width={55}
-      />
-      <h2 className="side-card__name">{podcast.name}</h2>
-      <h3 className="side-card__author">Author: {podcast.author}</h3>
+    <SideCardStyled>
+      <section className="side-card__image-container">
+        <img
+          className="side-card__cover"
+          src={podcast.image}
+          alt={`${podcast.name} podcast cover`}
+          height={150}
+          width={150}
+        />
+      </section>
 
-      <p className="side-text">
-        {" "}
+      <section className="side-card__info">
+        <h2 className="side-card__name">{podcast.name}</h2>
+        <span className="side-card__author">by {podcast.author}</span>
+      </section>
+
+      <section className="side-card__description">
         Description:
-        {podcast.description}
-      </p>
-    </>
+        <p className="side-card__description-text">{podcast.description}</p>
+      </section>
+    </SideCardStyled>
   );
 };
 
