@@ -24,7 +24,7 @@ export const getPodcast = async (podcastId) => {
 
 export const getEpisodeList = async (podcastId) => {
   const response = await fetch(
-    " https://itunes.apple.com/lookup?id=788236947&entity=podcastEpisode&limit=1000"
+    `https://itunes.apple.com/lookup?id=${podcastId}&entity=podcastEpisode&limit=1000`
   );
   const episodeList = await response.json();
 
@@ -36,6 +36,5 @@ export const getEpisodeList = async (podcastId) => {
       trackId: podcast.trackId,
     };
   });
-
   return data;
 };

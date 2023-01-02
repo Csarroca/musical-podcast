@@ -5,7 +5,7 @@ const SideCardStyled = styled.article`
   flex-direction: column;
   box-shadow: ${({ theme }) => theme.boxShadow.regular};
   width: 225px;
-  height: auto;
+  height: 100%;
   align-items: center;
   font-size: 0.75rem;
   border-radius: 2px;
