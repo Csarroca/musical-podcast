@@ -4,6 +4,7 @@ const EpisodeListStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
+  padding-left: 40px;
 
   table {
     width: 100%;
@@ -14,18 +15,24 @@ const EpisodeListStyled = styled.div`
 
   th {
     text-align: left;
-    padding: 5px 5px;
+    padding: 15px 15px;
   }
 
   td {
-    padding: 5px 5px;
+    padding: 15px 15px;
   }
 
   tbody tr:nth-child(odd) {
     background-color: #f6f6f6b8;
   }
 
+  a {
+    outline: none;
+    text-decoration: none;
+  }
+
   .episodeList__head {
+    padding: 15px;
     font-weight: bold;
     border: solid 2px #f6f6f6b8;
     box-shadow: ${({ theme }) => theme.boxShadow.short};
