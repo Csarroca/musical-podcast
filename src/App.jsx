@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import PodcastPage from "./pages/PodcastPage";
 import { ReactQueryDevtools } from "react-query/devtools";
 import PodcastDetailedPage from "./pages/PodcastDetailedPage/PodcastDetailedPage";
+import EspisodeDetailedPage from "./pages/EpisodeDetailedPage/EpisodeDetailedPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +18,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Routes>
         <Route path="/" element={<PodcastPage />} />
-        <Route path="/podcast/:id" element={<PodcastDetailedPage />} />
+        <Route path="/podcast/:podcastId" element={<PodcastDetailedPage />} />
+        <Route
+          path="/podcast/:podcastId/episode/:episodeId"
+          element={<EspisodeDetailedPage />}
+        />
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
