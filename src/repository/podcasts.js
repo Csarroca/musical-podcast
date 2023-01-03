@@ -34,6 +34,8 @@ export const getEpisodeList = async (podcastId) => {
       duration: podcast.trackTimeMillis,
       date: podcast.releaseDate,
       trackId: podcast.trackId,
+      description: podcast.description,
+      url: podcast.episodeUrl,
     };
   });
   return data.splice(1);
