@@ -1,23 +1,26 @@
 import EpisodeListStyled from "./EpisodeListStyled";
+import { NavLink, useParams } from "react-router-dom";
 
+function padToTwoDigits(num) {
+  return num.toString().padStart(2, "0");
+}
+
+function convertMsToTime(milliseconds) {
+  let seconds = Math.floor(milliseconds / 1000);
+  let minutes = Math.floor(seconds / 60);
+  let hours = Math.floor(minutes / 60);
+
+  seconds = seconds % 60;
+  minutes = minutes % 60;
+  hours = hours % 24;
+
+  return `${padToTwoDigits(hours)}:${padToTwoDigits(minutes)}:${padToTwoDigits(
+    seconds
+  )}`;
+}
 const EpisodeList = ({ episodeList }) => {
-  function padToTwoDigits(num) {
-    return num.toString().padStart(2, "0");
-  }
+  const { podcastId } = useParams();
 
-  function convertMsToTime(milliseconds) {
-    let seconds = Math.floor(milliseconds / 1000);
-    let minutes = Math.floor(seconds / 60);
-    let hours = Math.floor(minutes / 60);
-
-    seconds = seconds % 60;
-    minutes = minutes % 60;
-    hours = hours % 24;
-
-    return `${padToTwoDigits(hours)}:${padToTwoDigits(
-      minutes
-    )}:${padToTwoDigits(seconds)}`;
-  }
   return (
     <EpisodeListStyled>
       <span className="episodeList__head"> Episodes: {episodeList.length}</span>
@@ -33,7 +36,11 @@ const EpisodeList = ({ episodeList }) => {
           {episodeList.map((episode) => (
             <tr key={episode.trackId}>
               <td>
-                <a href="id"> {episode.title}</a>
+                <NavLink
+                  to={`/podcast/${podcastId}/episode/${episode.trackId}`}
+                >
+                  {episode.title}
+                </NavLink>
               </td>
               <td>{new Date(episode.date).toLocaleDateString()}</td>
               <td>{convertMsToTime(episode.duration)}</td>

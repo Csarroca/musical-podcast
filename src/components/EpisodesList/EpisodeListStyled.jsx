@@ -5,6 +5,7 @@ const EpisodeListStyled = styled.div`
   flex-direction: column;
   gap: 25px;
   padding-left: 40px;
+  width: 100%;
 
   table {
     width: 100%;
