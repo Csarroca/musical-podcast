@@ -4,7 +4,13 @@ import PodcastPage from "./pages/PodcastPage";
 import { ReactQueryDevtools } from "react-query/devtools";
 import PodcastDetailedPage from "./pages/PodcastDetailedPage/PodcastDetailedPage";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 86400000,
+    },
+  },
+});
 
 function App() {
   return (

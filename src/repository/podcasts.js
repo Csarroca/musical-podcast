@@ -36,5 +36,5 @@ export const getEpisodeList = async (podcastId) => {
       trackId: podcast.trackId,
     };
   });
-  return data;
+  return data.splice(1);
 };
