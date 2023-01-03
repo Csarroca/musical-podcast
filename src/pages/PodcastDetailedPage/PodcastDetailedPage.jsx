@@ -6,23 +6,23 @@ import { getEpisodeList, getPodcast } from "../../repository/podcasts";
 import PodcastDetailedPageStyled from "./PodcastDetailedPageStyled";
 
 const PodcastDetailedPage = () => {
-  const { id } = useParams();
+  const { podcastId } = useParams();
 
   const { status, data: podcast } = useQuery(
-    ["podcast", id],
-    () => getPodcast(id),
+    ["podcast", podcastId],
+    () => getPodcast(podcastId),
     {
       staleTime: 86400000,
-      enabled: !!id,
+      enabled: !!podcastId,
     }
   );
 
   const { data: episodeList, status: statusList } = useQuery(
-    ["episodeList", id],
-    () => getEpisodeList(id),
+    ["episodeList", podcastId],
+    () => getEpisodeList(podcastId),
     {
       staleTime: 86400000,
-      enabled: !!id,
+      enabled: !!podcastId,
     }
   );
 
