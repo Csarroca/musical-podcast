@@ -1,18 +1,21 @@
 import PodcastList from "../components/PodcastList/PodcastList";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { useState } from "react";
 import { getPodcasts } from "../repository/podcasts";
 import Filter from "../components/Filter/Filter";
 
 const PodcastPage = () => {
-  const [podcasts, setPodcasts] = useState([]);
+  const queryClient = useQueryClient();
   const [search, setSearch] = useState("");
 
   const { status } = useQuery(["podcasts"], getPodcasts, {
     staleTime: 86400000,
-    onSuccess: setPodcasts,
+    onSuccess: (podcasts) => {
+      podcasts.forEach((podcast) => {
+        queryClient.setQueryData([podcast, podcast.id].podcast);
+      });
+    },
   });
-
   if (status === "loading") {
     return <p>Loading podcasts...</p>;
   }
@@ -25,6 +28,8 @@ const PodcastPage = () => {
     setSearch(e.target.value);
   };
 
+  const podcasts = queryClient.getQueryData("podcasts");
+
   const results = !search
     ? podcasts
     : podcasts.filter(
@@ -32,7 +37,6 @@ const PodcastPage = () => {
           podcast.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
           podcast.author.toLowerCase().includes(search.toLocaleLowerCase())
       );
-
   return (
     <>
       <Filter search={search} searcher={searcher} results={results.length} />
