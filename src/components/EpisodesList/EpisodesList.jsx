@@ -33,7 +33,7 @@ const EpisodeList = ({ episodeList }) => {
           {episodeList.map((episode) => (
             <tr key={episode.trackId}>
               <td>
-                <a href="1"> {episode.title}</a>
+                <a href="id"> {episode.title}</a>
               </td>
               <td>{new Date(episode.date).toLocaleDateString()}</td>
               <td>{convertMsToTime(episode.duration)}</td>

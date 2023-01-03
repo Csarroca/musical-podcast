@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import EpisodeList from "../../components/EpisodesList/EpisodesList";
@@ -6,30 +5,24 @@ import SideCard from "../../components/SideCard/SideCard";
 import { getEpisodeList, getPodcast } from "../../repository/podcasts";
 import PodcastDetailedPageStyled from "./PodcastDetailedPageStyled";
 
-const initialPodcast = {
-  name: "",
-  image: "",
-  author: "",
-  description: "",
-};
-
 const PodcastDetailedPage = () => {
-  const [podcast, setPodcast] = useState(initialPodcast);
-  const [episodeList, setEpisodeList] = useState();
-
   const { id } = useParams();
 
-  const { status, data } = useQuery(["podcast"], () => getPodcast(id), {
-    staleTime: 86400000,
-    onSuccess: setPodcast,
-  });
+  const { status, data: podcast } = useQuery(
+    ["podcast", id],
+    () => getPodcast(id),
+    {
+      staleTime: 86400000,
+      enabled: !!id,
+    }
+  );
 
-  const { status: statusList } = useQuery(
-    ["episodeList"],
+  const { data: episodeList, status: statusList } = useQuery(
+    ["episodeList", id],
     () => getEpisodeList(id),
     {
       staleTime: 86400000,
-      onSuccess: setEpisodeList,
+      enabled: !!id,
     }
   );
 
@@ -41,9 +34,10 @@ const PodcastDetailedPage = () => {
     return <p>Error</p>;
   }
 
-  if (!data) {
+  if (!podcast || !episodeList) {
     return <p>Not found</p>;
   }
+
   return (
     <PodcastDetailedPageStyled>
       <SideCard podcast={podcast} />
