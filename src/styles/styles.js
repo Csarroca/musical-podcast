@@ -1,5 +1,8 @@
 const styles = {
   colors: {
+    brand: {
+      primary: "#3a61b6",
+    },
     neutral: {
       primaryText: "#17202A",
       secundaryText: "#797D7F ",
