@@ -37,7 +37,7 @@ const EpisodeList = ({ episodeList }) => {
             <tr key={episode.trackId}>
               <td>
                 <NavLink
-                  ckassName="link"
+                  className="link"
                   to={`/podcast/${podcastId}/episode/${episode.trackId}`}
                 >
                   {episode.title}

@@ -5,8 +5,7 @@ const EpisodeDetailed = ({ episode }) => {
     <EpisodeDetailedStyled>
       <h2>{episode.title}</h2>
 
-      <p>{episode.description}</p>
-      {/* <p dangerouslySetInnerHTML={__html: DOMPurify.sanitize({episode.description})} /> */}
+      <p dangerouslySetInnerHTML={{ __html: episode.description }} />
 
       <audio
         className="episode__audio"

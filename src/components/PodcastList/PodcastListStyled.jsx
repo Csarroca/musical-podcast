@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 const PodcastListSyled = styled.ul`
   display: grid;
-  grid-row-gap: 70px;
+  grid-row-gap: 150px;
   grid-column-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   margin: 0;
-  padding: 0;
-  padding-top: 50px;
+  padding: 50px 20px;
 
   li,
   ul {
