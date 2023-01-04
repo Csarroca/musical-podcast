@@ -8,7 +8,7 @@ const PodcastPage = () => {
   const queryClient = useQueryClient();
   const [search, setSearch] = useState("");
 
-  const { status } = useQuery(["podcasts"], getPodcasts, {
+  const { status, data: podcasts } = useQuery(["podcasts"], getPodcasts, {
     staleTime: 86400000,
     onSuccess: (podcasts) => {
       podcasts.forEach((podcast) => {
@@ -27,8 +27,6 @@ const PodcastPage = () => {
   const searcher = (e) => {
     setSearch(e.target.value);
   };
-
-  const podcasts = queryClient.getQueryData("podcasts");
 
   const results = !search
     ? podcasts
