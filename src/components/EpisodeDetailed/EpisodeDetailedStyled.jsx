@@ -9,8 +9,9 @@ const EpisodeDetailedStyled = styled.div`
   border-radius: 2px;
   padding: 20px 10px;
 
-  video {
+  audio {
     height: 30px;
+    width: 100%;
   }
 `;
 
