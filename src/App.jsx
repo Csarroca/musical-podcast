@@ -1,9 +1,9 @@
 import { QueryClientProvider, QueryClient } from "react-query";
 import { Route, Routes } from "react-router-dom";
 import PodcastPage from "./pages/PodcastPage";
-import { ReactQueryDevtools } from "react-query/devtools";
 import PodcastDetailedPage from "./pages/PodcastDetailedPage/PodcastDetailedPage";
 import EspisodeDetailedPage from "./pages/EpisodeDetailedPage/EpisodeDetailedPage";
+import Header from "./components/Header/Header";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,6 +16,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <Header />
       <Routes>
         <Route path="/" element={<PodcastPage />} />
         <Route path="/podcast/:podcastId" element={<PodcastDetailedPage />} />
@@ -24,7 +25,6 @@ function App() {
           element={<EspisodeDetailedPage />}
         />
       </Routes>
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
