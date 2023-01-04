@@ -4,7 +4,7 @@ const EpisodeDetailedPageStyled = styled.div`
   display: flex;
   flex-direction: row;
   margin: 40px 40px 20px 40px;
-  gap: 100px;
+  gap: 40px;
 `;
 
 export default EpisodeDetailedPageStyled;

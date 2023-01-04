@@ -8,7 +8,7 @@ import EpisodeDetailedPageStyled from "./EpisodeDetailedPageStyled";
 const EspisodeDetailedPage = () => {
   const { podcastId, episodeId } = useParams();
 
-  const { data: podcast } = useQuery(
+  const { data: podcast, status } = useQuery(
     ["podcast", podcastId],
     () => getPodcast(podcastId),
     {
@@ -17,7 +17,7 @@ const EspisodeDetailedPage = () => {
     }
   );
 
-  const { data: episodeList } = useQuery(
+  const { data: episodeList, status: statusList } = useQuery(
     ["episodeList", podcastId],
     () => getEpisodeList(podcastId),
     {
@@ -26,10 +26,21 @@ const EspisodeDetailedPage = () => {
     }
   );
 
-  const episode = episodeList.find((episode) => {
-    if (episode.trackId === episodeId) return episode;
-    return episode;
-  });
+  if (status === "loading" || statusList === "loading") {
+    return <p>Loading podcasts...</p>;
+  }
+
+  if (status === "error") {
+    return <p>Error</p>;
+  }
+
+  if (!podcast || !episodeList) {
+    return <p>Not found</p>;
+  }
+
+  const episode = episodeList.find(
+    (element) => element.trackId === Number(episodeId)
+  );
   return (
     <EpisodeDetailedPageStyled>
       <SideCard podcast={podcast} />

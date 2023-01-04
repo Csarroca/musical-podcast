@@ -1,4 +1,5 @@
 import EpisodeDetailedStyled from "./EpisodeDetailedStyled";
+import DOMPurify from "dompurify";
 
 const EpisodeDetailed = ({ episode }) => {
   return (
@@ -6,13 +7,9 @@ const EpisodeDetailed = ({ episode }) => {
       <h2>{episode.title}</h2>
 
       <p>{episode.description}</p>
+      {/* <p dangerouslySetInnerHTML={__html: DOMPurify.sanitize({episode.description})} /> */}
 
-      <video
-        src="https://traffic.libsyn.com/secure/jbpod/Joe_Budden_Podcast_588.mp3?dest-id=2422538"
-        width="640"
-        height="480"
-        controls="true"
-      ></video>
+      <video src={episode.url} controls={true}></video>
     </EpisodeDetailedStyled>
   );
 };
