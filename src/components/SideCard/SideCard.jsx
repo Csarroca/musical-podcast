@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import SideCardStyled from "./SideCardStyled";
 
 const SideCard = ({ podcast }) => {
+  const navigate = useNavigate();
+
   return (
-    <SideCardStyled>
+    <SideCardStyled
+      onClick={() => {
+        navigate(`/podcast/${podcast.id}`);
+      }}
+    >
       <section className="side-card__image-container">
         <img
           className="side-card__cover"
