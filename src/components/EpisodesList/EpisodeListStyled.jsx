@@ -30,6 +30,12 @@ const EpisodeListStyled = styled.div`
   a {
     outline: none;
     text-decoration: none;
+    &:visited {
+      color: ${({ theme }) => theme.colors.brand.primary};
+    }
+    &:link {
+      color: ${({ theme }) => theme.colors.brand.primary};
+    }
   }
 
   .episodeList__head {
