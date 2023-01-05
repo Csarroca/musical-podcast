@@ -1,15 +1,16 @@
-import { useIsFetching } from "react-query";
-
-function LoadingIndicator() {
-  const isFetching = useIsFetching();
-
+const LoadingIndicator = ({ isLoading }) => {
   return (
-    isFetching && (
+    isLoading && (
       <div className="loading-indicator">
-        <img src="/images/spinner.gif" alt="Loading..." />
+        <img
+          src="/images/spinner.gif"
+          alt="Loading..."
+          height={40}
+          width={40}
+        />
       </div>
     )
   );
-}
+};
 
 export default LoadingIndicator;
