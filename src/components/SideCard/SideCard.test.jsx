@@ -2,6 +2,14 @@ import { render, screen } from "@testing-library/react";
 import { Wrapper } from "../../test-utils/render/Wrapper";
 import SideCard from "./SideCard";
 import { podcast } from "../../test-utils/mocks/mockPodcast";
+import userEvent from "@testing-library/user-event";
+
+const mockNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
 
 describe("Given a SideCard component", () => {
   describe("When instantiated with a podcast as props", () => {
@@ -19,5 +27,15 @@ describe("Given a SideCard component", () => {
       expect(image).toBeInTheDocument();
       expect(description).toBeInTheDocument();
     });
+  });
+
+  test("When it's clicked then it should return no the episodeList view", () => {
+    render(<SideCard podcast={podcast} />, { wrapper: Wrapper });
+
+    const component = screen.getByRole("article");
+
+    userEvent.click(component);
+
+    expect(mockNavigate).toHaveBeenCalled();
   });
 });
