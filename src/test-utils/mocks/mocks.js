@@ -63,3 +63,10 @@ export const podcasts = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint officiis iusto quos rerum distinctio adipisci voluptatibus? Amet tenetur expedita sapiente veritatis quisquam in consectetur quod. Blanditiis labore recusandae quo nostrum.",
   },
 ];
+
+export const episode = {
+  title: "episodeTest",
+  description:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vel quia temporibus accusantium dolor! Hic veritatis, mollitia nam optio assumenda ex ut quibusdam illum quia, perspiciatis recusandae repellendus iusto facere!",
+  url: "audioUrlTest",
+};
