@@ -24,7 +24,6 @@ describe("Given a SideCard component", () => {
       expect(image).toBeInTheDocument();
       expect(name).toBeInTheDocument();
       expect(author).toBeInTheDocument();
-      expect(image).toBeInTheDocument();
       expect(description).toBeInTheDocument();
     });
   });

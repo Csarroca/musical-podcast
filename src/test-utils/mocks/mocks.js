@@ -36,3 +36,30 @@ export const episodeList = [
     url: "audio",
   },
 ];
+
+export const podcasts = [
+  {
+    name: "podcastTest1",
+    image: "https:/.com/ad.svg",
+    author: "testAutho1r",
+    id: 1220001,
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint officiis iusto quos rerum distinctio adipisci voluptatibus? Amet tenetur expedita sapiente veritatis quisquam in consectetur quod. Blanditiis labore recusandae quo nostrum.",
+  },
+  {
+    name: "podcastTest2",
+    image: "https:/.com/ad.svg",
+    author: "testAutho2r",
+    id: 1220002,
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint officiis iusto quos rerum distinctio adipisci voluptatibus? Amet tenetur expedita sapiente veritatis quisquam in consectetur quod. Blanditiis labore recusandae quo nostrum.",
+  },
+  {
+    name: "podcastTest3",
+    image: "https:/.com/ad.svg",
+    author: "testAuthor3",
+    id: 1220003,
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint officiis iusto quos rerum distinctio adipisci voluptatibus? Amet tenetur expedita sapiente veritatis quisquam in consectetur quod. Blanditiis labore recusandae quo nostrum.",
+  },
+];
