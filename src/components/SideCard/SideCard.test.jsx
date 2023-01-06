@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Wrapper } from "../../test-utils/render/Wrapper";
 import SideCard from "./SideCard";
-import { podcast } from "../../test-utils/mocks/mockPodcast";
+import { podcast } from "../../test-utils/mocks/mocks";
 import userEvent from "@testing-library/user-event";
 
 const mockNavigate = jest.fn();
