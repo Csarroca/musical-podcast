@@ -8,6 +8,7 @@ const EpisodeDetailed = ({ episode }) => {
       <p dangerouslySetInnerHTML={{ __html: episode.description }} />
 
       <audio
+        data-testid="audio"
         className="episode__audio"
         controls
         preload="auto"
