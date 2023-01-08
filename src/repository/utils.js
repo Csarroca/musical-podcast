@@ -16,12 +16,12 @@ export function convertMsToTime(milliseconds) {
   )}`;
 }
 
-// export const optionsParse = {
-//   replace: (domNode) => {
-//     const domElement = domNode;
-//     if (domElement.name === "a" && domElement.type === "tag") {
-//       domElement.attribs.target = "_blank";
-//     }
-//     return domElement;
-//   },
-// };
+export const optionsParse = {
+  replace: (domNode) => {
+    const domElement = domNode;
+    if (domElement.name === "a" && domElement.type === "tag") {
+      domElement.attribs.target = "_blank";
+    }
+    return domElement;
+  },
+};

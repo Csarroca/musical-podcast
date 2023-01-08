@@ -2,6 +2,10 @@
 
 Podcaster is a plataform to show the latest 100 podcast more listened in itunes. The user can see the list of podcast, get into the detail of a podcast or episode, and also reproduce them.
 
+## ENV.EXAMPLE
+
+There is a .env.example file form make easier to make .env. Just copy the example inside for generate your own file.
+
 ## Available Scripts
 
 In the project directory, you can run:
