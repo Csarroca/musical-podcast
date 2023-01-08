@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Wrapper } from "../../test-utils/render/Wrapper";
 import EpisodeDetailed from "./EpisodeDetailed";
 import { episode } from "../../test-utils/mocks/mocks";
@@ -22,9 +22,8 @@ describe("Given a EpisodeDetailed component", () => {
       render(<EpisodeDetailed episode={episode} />, { wrapper: Wrapper });
 
       const audio = screen.getByTestId("audio");
-      fireEvent.click(audio);
 
-      //expect(audio).toHaveAttribute("onPlaying");
+      expect(audio.src).toBe(episode.url);
     });
   });
 });
