@@ -2,7 +2,7 @@ export const podcast = {
   name: "podcastTest",
   image: "https:/.com/ad.svg",
   author: "testAuthor",
-  id: 1220000,
+  id: "1220000",
   description:
     "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint officiis iusto quos rerum distinctio adipisci voluptatibus? Amet tenetur expedita sapiente veritatis quisquam in consectetur quod. Blanditiis labore recusandae quo nostrum.",
 };
@@ -69,4 +69,39 @@ export const episode = {
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vel quia temporibus accusantium dolor! Hic veritatis, mollitia nam optio assumenda ex ut quibusdam illum quia, perspiciatis recusandae repellendus iusto facere!",
   url: "audioUrlTest",
+};
+
+export const apiResponsePodcasts = {
+  feed: {
+    entry: [
+      {
+        "im:name": { label: "podcastTest" },
+        "im:image": [
+          {
+            label: "https:/.com/ad.svg",
+            attributes: { height: "55" },
+          },
+          {
+            label: "https:/.com/ad.svg",
+            attributes: { height: "60" },
+          },
+          {
+            label: "https:/.com/ad.svg",
+            attributes: { height: "170" },
+          },
+        ],
+        summary: {
+          label:
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint officiis iusto quos rerum distinctio adipisci voluptatibus? Amet tenetur expedita sapiente veritatis quisquam in consectetur quod. Blanditiis labore recusandae quo nostrum.",
+        },
+
+        id: {
+          label:
+            "https://podcasts.apple.com/us/podcast/caresha-please/id1628914491?uo=2",
+          attributes: { "im:id": "1220000" },
+        },
+        "im:artist": { label: "testAuthor" },
+      },
+    ],
+  },
 };
