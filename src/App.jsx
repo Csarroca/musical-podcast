@@ -9,6 +9,9 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       cacheTime: 86400000,
+      onError: (error) => {
+        console.log(error);
+      },
     },
   },
 });

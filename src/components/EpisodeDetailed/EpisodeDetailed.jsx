@@ -1,11 +1,18 @@
+import HTMLReactParser from "html-react-parser";
+import { optionsParse } from "../../repository/utils";
 import EpisodeDetailedStyled from "./EpisodeDetailedStyled";
 
 const EpisodeDetailed = ({ episode }) => {
   return (
     <EpisodeDetailedStyled>
-      <h2>{episode.title}</h2>
+      <h2 className="episode__title">{episode.title}</h2>
 
-      <p dangerouslySetInnerHTML={{ __html: episode.description }} />
+      <p
+        className="episode__description"
+        dangerouslySetInnerHTML={{
+          __html: HTMLReactParser(episode.description, optionsParse),
+        }}
+      />
 
       <audio
         data-testid="audio"

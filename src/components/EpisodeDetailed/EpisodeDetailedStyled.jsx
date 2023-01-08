@@ -13,6 +13,10 @@ const EpisodeDetailedStyled = styled.div`
     height: 30px;
     width: 100%;
   }
+
+  .episode__description {
+    line-height: 1.5;
+  }
 `;
 
 export default EpisodeDetailedStyled;
