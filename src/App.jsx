@@ -1,6 +1,6 @@
 import { QueryClientProvider, QueryClient } from "react-query";
 import { Route, Routes } from "react-router-dom";
-import PodcastPage from "./pages/PodcastPage";
+import PodcastPage from "./pages/PodcastPage/PodcastPage";
 import PodcastDetailedPage from "./pages/PodcastDetailedPage/PodcastDetailedPage";
 import EspisodeDetailedPage from "./pages/EpisodeDetailedPage/EpisodeDetailedPage";
 import Header from "./components/Header/Header";

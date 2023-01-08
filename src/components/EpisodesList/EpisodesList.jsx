@@ -4,10 +4,9 @@ import { convertMsToTime } from "../../repository/utils";
 
 const EpisodeList = ({ episodeList }) => {
   const { podcastId } = useParams();
-
   return (
     <EpisodeListStyled>
-      <span className="episodeList__head"> Episodes: {episodeList.length}</span>
+      <span className="episodeList__head">{`Episodes: ${episodeList.length}`}</span>
       <table>
         <thead>
           <tr>
