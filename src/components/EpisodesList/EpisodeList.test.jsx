@@ -12,8 +12,8 @@ describe("Given a EpisodeList component", () => {
       const list = screen.getByRole("table");
       const numberOfEpisodes = screen.getByText("Episodes: 3");
       const title = screen.getByText(episodeList[0].title);
-      expect(list).toBeInTheDocument();
 
+      expect(list).toBeInTheDocument();
       expect(title.textContent).toBe(episodeList[0].title);
       expect(numberOfEpisodes.textContent).toBe("Episodes: 3");
     });
