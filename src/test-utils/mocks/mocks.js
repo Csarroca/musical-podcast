@@ -11,31 +11,57 @@ export const episodeList = [
   {
     title: "episode1",
     duration: 111,
-    date: 22 / 11 / 22,
-    trackId: 123345,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam ea in laudantium odio alias dicta nobis officia ad repellendus consectetur culpa, reiciendis modi mollitia, enim quis quas velit facere.",
+    date: "12/12/22",
+    trackId: 12345,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     url: "audio",
   },
   {
     title: "episode2",
-    duration: 111333,
-    date: 25 / 11 / 22,
-    trackId: 123124,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam ea in laudantium odio alias dicta nobis officia ad repellendus consectetur culpa, reiciendis modi mollitia, enim quis quas velit facere.",
+    duration: 1112,
+    date: "13/12/22",
+    trackId: 123456,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     url: "audio",
   },
   {
     title: "episode3",
-    duration: 122333,
-    date: 30 / 11 / 22,
-    trackId: 123123,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam ea in laudantium odio alias dicta nobis officia ad repellendus consectetur culpa, reiciendis modi mollitia, enim quis quas velit facere.",
+    duration: 1113,
+    date: "14/12/22",
+    trackId: 1234567,
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     url: "audio",
   },
 ];
+
+export const episodeListFromApi = {
+  results: [
+    {
+      trackName: "episode1",
+      trackTimeMillis: 111,
+      releaseDate: "12/12/22",
+      trackId: 12345,
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      episodeUrl: "audio",
+    },
+    {
+      trackName: "episode2",
+      trackTimeMillis: 1112,
+      releaseDate: "13/12/22",
+      trackId: 123456,
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      episodeUrl: "audio",
+    },
+    {
+      trackName: "episode3",
+      trackTimeMillis: 1113,
+      releaseDate: "14/12/22",
+      trackId: 1234567,
+      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      episodeUrl: "audio",
+    },
+  ],
+};
 
 export const podcasts = [
   {
@@ -68,7 +94,7 @@ export const episode = {
   title: "episodeTest",
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vel quia temporibus accusantium dolor! Hic veritatis, mollitia nam optio assumenda ex ut quibusdam illum quia, perspiciatis recusandae repellendus iusto facere!",
-  url: "audioUrlTest",
+  url: "http://localhost/audioUrlTest",
 };
 
 export const apiResponsePodcasts = {

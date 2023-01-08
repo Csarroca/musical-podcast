@@ -4,7 +4,6 @@ export const getPodcasts = async () => {
   const response = await fetch(url);
 
   const data = await response.json();
-
   return data.feed.entry.map((podcast) => {
     return {
       name: podcast["im:name"].label,
@@ -38,5 +37,6 @@ export const getEpisodeList = async (podcastId) => {
       url: podcast.episodeUrl,
     };
   });
+
   return data.splice(1);
 };
