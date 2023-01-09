@@ -18,10 +18,12 @@ const FilterStyled = styled.div`
     }
 
     &__counter {
+      padding: 4px;
+      font-weight: bold;
       color: white;
-      background-color: #3a61b6;
+      background-color: ${({ theme }) => theme.colors.brand.primary};
       border-radius: 7px;
-      border: 3px solid #3a61b6;
+      border: 3px solid ${({ theme }) => theme.colors.brand.primary};
     }
   }
 `;

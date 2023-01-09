@@ -13,7 +13,7 @@ const Header = () => {
 
     setTimeout(function () {
       setIsLoading(false);
-    }, 1000);
+    }, 1500);
   }, [location]);
 
   return (
