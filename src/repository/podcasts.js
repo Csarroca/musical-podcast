@@ -1,10 +1,13 @@
 const url = process.env.REACT_APP_API_URL;
 
 export const getPodcasts = async () => {
-  const response = await fetch(url);
+  const response = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
 
   const data = await response.json();
-  return data.feed.entry.map((podcast) => {
+
+  const podcasts = data.feed.entry;
+
+  return podcasts.map((podcast) => {
     return {
       name: podcast["im:name"].label,
       image: podcast["im:image"][2].label,
@@ -23,7 +26,7 @@ export const getPodcast = async (podcastId) => {
 
 export const getEpisodeList = async (podcastId) => {
   const response = await fetch(
-    `https://itunes.apple.com/lookup?id=${podcastId}&entity=podcastEpisode&limit=1000`
+    `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/lookup?id=${podcastId}&entity=podcastEpisode&limit=1000`
   );
   const episodeList = await response.json();
 
